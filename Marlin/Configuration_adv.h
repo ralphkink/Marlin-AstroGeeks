@@ -2895,7 +2895,14 @@
  * See https://marlinfw.org/docs/configuration/laser_spindle.html for more config details.
  */
 //#define SPINDLE_FEATURE
-//#define LASER_FEATURE
+
+/*** XRK START ***/
+// Pins are includes from lpc1768\pins_BTT_SKR_V1_4.h via lpc1769\pins_BTT_SKR_V1_4_TURBO.h
+#define SPINDLE_LASER_ENA_PIN P2_07 // Hot End 0 FET
+#define SPINDLE_LASER_PWM_PIN P2_05 // Heat Bet (large) FET - Alternative: P2_04 - Hot End 1 FET
+#define LASER_FEATURE
+/*** XRK END ***/
+
 #if EITHER(SPINDLE_FEATURE, LASER_FEATURE)
   #define SPINDLE_LASER_ACTIVE_STATE    LOW    // Set to "HIGH" if the on/off function is active HIGH
   #define SPINDLE_LASER_PWM             true   // Set to "true" if your controller supports setting the speed/power
